@@ -1,0 +1,62 @@
+<div>
+    <div class="d-flex justify-content-between py-2">
+        <h2>Users</h2>
+        <div>
+            <button mat-button (click)="onFindAlbumsByUserId()">
+                <div class="d-flex gap-3 align-items-center">
+                    <mat-icon class="mr-2">library_books</mat-icon>
+                    <div>Search Albums by user id</div>
+                </div>
+            </button>
+            <button mat-button (click)="onFindPostsByUserId()">
+                <div class="d-flex gap-3 align-items-center">
+                    <mat-icon class="mr-2">post_add</mat-icon>
+                    <div>Search Posts by user id</div>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <table mat-table [dataSource]="users" class="mat-elevation-z8 w-100">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let user"> {{user?.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef> User name </th>
+            <td mat-cell *matCellDef="let user"> {{user?.username}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef> Phone </th>
+            <td mat-cell *matCellDef="let user"> {{user?.phone}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let user">
+                <div>
+                    <button mat-button (click)="onSearchUserAlbumsById(user?.id)">
+                        <div class="d-flex gap-3 align-items-center">
+                            <mat-icon class="mr-2">library_books</mat-icon>
+                            <div>Albums</div>
+                        </div>
+                    </button>
+
+                    <button mat-button (click)="onSearchUserPostById(user?.id)">
+                        <div class="d-flex gap-3 align-items-center">
+                            <mat-icon class="mr-2">post_add</mat-icon>
+                            <div>Posts</div>
+                        </div>
+                    </button>
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

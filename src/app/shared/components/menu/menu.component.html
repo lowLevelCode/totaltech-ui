@@ -1,0 +1,7 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" *ngFor="let link of links">
+            <a class=" text-left w-100" mat-button [routerLink]="link?.routerLink" >{{link?.text}}</a>
+        </div>        
+    </div>
+</div>

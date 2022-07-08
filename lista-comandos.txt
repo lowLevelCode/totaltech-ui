@@ -1,0 +1,3 @@
+ng g m @pages/totaltech --route totaltech -m=app.module
+ng g m @pages/totaltech/users --route users -m=@pages/totaltech/totaltech.module
+ng g m @pages/totaltech/posts --route posts -m=@pages/totaltech/totaltech.module
